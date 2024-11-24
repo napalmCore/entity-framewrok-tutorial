@@ -1,0 +1,19 @@
+@page
+@using EFTuto.Models
+@model ProductModel
+@{
+    ViewData["Title"] = "Product page";
+    var products = ViewData["Products"] as List<Product>;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @foreach(var product in products)
+    {
+        <div>
+            <h2>@product.Name</h2>
+            <p>@product.Price</p>
+        </div>
+    }
+</div>
