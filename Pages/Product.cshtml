@@ -3,17 +3,30 @@
 @model ProductModel
 @{
     ViewData["Title"] = "Product page";
-    var products = ViewData["Products"] as List<Product>;
+    var products = ViewData["Products"] as IEnumerable<Product>;
+    Console.WriteLine(products);
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    @foreach(var product in products)
-    {
-        <div>
-            <h2>@product.Name</h2>
-            <p>@product.Price</p>
-        </div>
-    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                </tr>
+            }
+        </tbody>
 </div>
