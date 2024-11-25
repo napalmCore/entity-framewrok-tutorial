@@ -1,3 +1,4 @@
+using EFTuto.Models;
 using EFTuto.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
