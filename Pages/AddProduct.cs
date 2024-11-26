@@ -17,6 +17,10 @@ public class AddProductModel : PageModel
         _productService = productService;
     }
 
+    public IActionResult OnGet() {
+        return Page();
+    }
+    
     public IActionResult OnPost()
     {
         if (!ModelState.IsValid)
