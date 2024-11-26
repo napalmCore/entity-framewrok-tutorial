@@ -18,6 +18,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Price</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,12 @@
                     <td><a href="/editproduct/@product.Id">@product.Id</a></td>
                     <td>@product.Name</td>
                     <td>@product.Price</td>
+                    <td>
+                        <form method="post" asp-page-handler="Delete" style="display:inline;">
+                            <input type="hidden" name="id" value="@product.Id" />
+                            <button type="submit" class="btn btn-danger mt-3">Delete Product</button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>

@@ -23,4 +23,13 @@ public class ProductModel : PageModel
 
         ViewData["Products"] = products;
     }
+
+    public IActionResult OnPostDelete(int id)
+    {
+        var product = _productService.GetProductById(id);
+        _productService.DeleteProduct(product);
+
+        TempData["Message"] = "Product deleted successfully!";
+        return RedirectToPage("Product");
+    }
 }
