@@ -10,8 +10,8 @@ namespace EFTuto.Models
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
-
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<OrderStatus> OrderStatuses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,22 +24,20 @@ namespace EFTuto.Models
                 .HasColumnType("decimal(18,2)");
 
             modelBuilder.Entity<Order>()
-            .Property(p => p.SubTotal)
-            .HasColumnType("decimal(18,2)");
-
-
-            modelBuilder.Entity<Order>()
-            .Property(p => p.Tax)
-            .HasColumnType("decimal(18,2)");
-
+                .Property(p => p.SubTotal)
+                .HasColumnType("decimal(18,2)");
 
             modelBuilder.Entity<Order>()
-        .Property(p => p.Total)
-        .HasColumnType("decimal(18,2)");
+                .Property(p => p.Tax)
+                .HasColumnType("decimal(18,2)");
 
             modelBuilder.Entity<Order>()
-.Property(p => p.Shipping)
-.HasColumnType("decimal(18,2)");
+                .Property(p => p.Total)
+                .HasColumnType("decimal(18,2)");
+
+            modelBuilder.Entity<Order>()
+                .Property(p => p.Shipping)
+                .HasColumnType("decimal(18,2)");
         }
     }
 }
