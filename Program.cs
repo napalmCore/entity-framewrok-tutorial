@@ -14,6 +14,8 @@ builder.Services.AddDbContext<EFTutoDbContext>(options =>
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IOrderStatusRepository, OrderStatusRepository>();
+builder.Services.AddScoped<IOrderStatusService, OrderStatusService>();
 
 var app = builder.Build();
 
